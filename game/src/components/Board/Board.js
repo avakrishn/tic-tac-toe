@@ -2,19 +2,31 @@
 
 import React, {Component} from 'react';
 import styles from  './Board.module.css';
-import Square from '../Square/Sqaure';
+import Square from '../Square/Square';
 
 class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            squares : Array(9).fill(null),
             player : "X",
         }
         
     }
+
+    handleClick = (i) => {
+        if(this.state.squares[i] === null){
+            const squares = this.state.squares.slice();
+            squares[i] = this.state.player;
+            let player = (this.state.player === "X") ? "O" : "X";
+            this.setState({squares, player});
+        }
+        
+        
+    }
     
     renderSquare = (i) => {
-        return <Square value={i} />
+        return <Square value={this.state.squares[i]} onSquareClick={() => this.handleClick(i)} />
     }
     render(){
         const {player} = this.state;

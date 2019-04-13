@@ -1,15 +1,23 @@
 'use strict';
 
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import styles from './Square.module.css';
 
 class Square extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            value: null,
+        }
+    }
     render() {
-        value = this.props;
+        const {value} = this.state;
         return(
-            <button className={styles.square}>
-                {value};
+            <button 
+                className={styles.square} 
+                onClick={()=> this.setState({value: 'X'})}
+            >
+                {value}
             </button>
         );
     }

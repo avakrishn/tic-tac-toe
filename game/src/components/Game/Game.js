@@ -1,12 +1,16 @@
 'use-strict';
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import styles from './Game.module.css';
+import Board from '../Board/Board';
 
 class Game extends Component {
     render (){
         return(
-            <div>Hi!</div>
+            <div className={styles.game}>
+                <div className={styles.gameBoard}>
+                    <Board/>
+                </div>
+            </div>
         );
     }
 }

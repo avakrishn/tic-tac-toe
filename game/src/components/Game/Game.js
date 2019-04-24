@@ -78,16 +78,19 @@ class Game extends Component {
         });
         
         return(
-            <div className={styles.game}>
-                <div className={styles.gameBoard}>
-                    <Board
-                        squares={current.squares}
-                        handleClick={(i) => this.handleClick(i)}
-                    />
-                </div>
-                <div className={styles.gameInfo}>
-                    <div className={styles.status}>{status}</div>
-                    <ol>{moves}</ol>
+            <div>
+                <div className={styles.title}>Tic Tac Toe</div>
+                <div className={styles.game}>
+                    <div className={styles.gameBoard}>
+                        <Board
+                            squares={current.squares}
+                            handleClick={(i) => this.handleClick(i)}
+                        />
+                    </div>
+                    <div className={styles.gameInfo}>
+                        <div className={styles.status}>{status}</div>
+                        <ol>{moves}</ol>
+                    </div>
                 </div>
             </div>
         );
